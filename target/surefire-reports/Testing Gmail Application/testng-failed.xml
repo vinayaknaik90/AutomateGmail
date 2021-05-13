@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Testing Gmail Application]">
+  <test name="Test for the Gmail application(failed)">
+    <classes>
+      <class name="com.Gmail.testcases.GmailTest">
+        <methods>
+          <include name="verify_Gmail_Successful_Signup"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.Gmail.testcases.GmailTest -->
+    </classes>
+  </test> <!-- Test for the Gmail application(failed) -->
+</suite> <!-- Failed suite [Testing Gmail Application] -->

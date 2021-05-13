@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 2, Time elapsed: 0.532 s <<< FAILURE! - in TestSuite
+com.Gmail.testcases.GmailTest.setup  Time elapsed: 0.449 s  <<< FAILURE!
+java.lang.NullPointerException
+	at com.Gmail.testcases.GmailTest.setup(GmailTest.java:21)
+
