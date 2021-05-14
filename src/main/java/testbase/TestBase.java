@@ -15,9 +15,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class TestBase {
 	
 //	public static void main (String[] args) {
-//	System.out.println(System.getProperty("user.dir"));	
+//	System.out.println(System.getProperty("user.dir") + File.separator +"src" + File.separator +"main" + File.separator 
+//			+"java" + File.separator +"config" + File.separator + "config.properties");	
 //	}
-//	
+	
 	public static Properties prop;
 	public static FileInputStream fis;
 	public static WebDriver driver;
@@ -27,7 +28,8 @@ public class TestBase {
 		prop = new Properties();
 		
 		try {
-			fis = new FileInputStream(System.getProperty("user.dir") + File.separator +"config" +File.separator + "config.properties");
+			fis = new FileInputStream(System.getProperty("user.dir") + File.separator +"src" + File.separator +"main" + File.separator 
+					+"java" + File.separator +"config" + File.separator + "config.properties");
 			prop.load(fis);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -52,8 +54,8 @@ public class TestBase {
 				
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get(prop.getProperty("signupurl"));
 	}
 }

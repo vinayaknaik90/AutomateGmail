@@ -9,8 +9,8 @@ import testbase.TestBase;
 import utilities.Utility;
 
 public class GmailTest extends TestBase{
-	public Utility util; 
-	private GmailSignupPage signupage;
+	private static Utility util; 
+	private static GmailSignupPage signuppage;
 	
 	public GmailTest(){
 		super();
@@ -20,11 +20,12 @@ public class GmailTest extends TestBase{
 	public void setup() {
 		Initialization();
 		util = new Utility();
+		signuppage = new GmailSignupPage();
 	}
 	
 	@Test(priority=1)
 	public void verify_Gmail_Successful_Signup() {
-		signupage.gmailSignUp();
+		signuppage.gmailSignUp();
 	}
 	
 	@AfterMethod

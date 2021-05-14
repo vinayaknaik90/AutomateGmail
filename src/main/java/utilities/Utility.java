@@ -2,13 +2,17 @@ package utilities;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Random;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 import testbase.TestBase;
 
@@ -81,6 +85,12 @@ public class Utility extends TestBase{
 			FirstRow = null;
 		}
 		 return ReadColumnValue;
+	}
+	
+	public static void takeScreenshotAtEndOfTest() throws IOException {
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		String currentDir = System.getProperty("user.dir");
+		FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));
 	}
 
 }

@@ -3,7 +3,9 @@ package utilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import testbase.TestBase;
 
@@ -46,6 +48,16 @@ public class ElementOperations extends TestBase{
 		js.executeScript("arguments[0].scrollIntoView();", elementfocus);				
 	}
 	
-	
+	public static boolean checkVisibility(WebElement element, int waitTime) {
+		try {
+			boolean disp = new WebDriverWait(driver, waitTime).until(ExpectedConditions.visibilityOf(element)).isDisplayed();
+			return disp;
+		} catch(org.openqa.selenium.TimeoutException t) {
+			return false;
+		} catch(Exception e) {
+			System.err.println("Unable to return the webelement for the locator");
+		    return false;
+		}
+	}	
 
 }
