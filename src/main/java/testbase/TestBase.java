@@ -11,6 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import pojo.TestData;
+
 
 public class TestBase {
 	
@@ -22,6 +24,8 @@ public class TestBase {
 	public static Properties prop;
 	public static FileInputStream fis;
 	public static WebDriver driver;
+	
+	public static final ThreadLocal<TestData> testData = new ThreadLocal<TestData>();
 	
 	public TestBase() 
 	    {

@@ -25,7 +25,14 @@ public class Utility extends TestBase{
 		return randm.nextInt(high-low) + low;
 	}
 	
-	public String readCellValue(String Sheetname, String Scenario, String Testcase, String Readcolumnname) {
+	public static void takeScreenshotAtEndOfTest() throws IOException {
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		String currentDir = System.getProperty("user.dir");
+		FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));
+	}
+	
+	
+	public String readCellValue(String Sheetname, String Scenario, String Readcolumnname) {
 
 		FileInputStream fis = null;
 		Workbook book = null;
@@ -39,7 +46,7 @@ public class Utility extends TestBase{
                  book = new XSSFWorkbook(fis);
                  sheet = book.getSheet(Sheetname);
                  
-                 int ScenarioColumnIndex = -1; int TestcaseColumnIndex = -1; int ReadColumnNameIndex = -1;
+                 int ScenarioColumnIndex = -1; int ReadColumnNameIndex = -1;
                  
                  FirstRow = sheet.getRow(0);
                                  
@@ -47,14 +54,13 @@ public class Utility extends TestBase{
             	String ColumnName = cell.getRichStringCellValue().getString().trim();
             	if(ColumnName.equals("Scenario")) {
             		ScenarioColumnIndex = cell.getColumnIndex();
-            	}else if(ColumnName.equals("TestCase")) {
-            		TestcaseColumnIndex = cell.getColumnIndex();
             	}
+
             	else if(ColumnName.equals(Readcolumnname)) {
             		ReadColumnNameIndex = cell.getColumnIndex();
             	}  
             	
-            	 if (ScenarioColumnIndex >=0 && TestcaseColumnIndex >=0 && ReadColumnNameIndex >=0)
+            	 if (ScenarioColumnIndex >=0 && ReadColumnNameIndex >=0)
             	 {
             		 break;
             	 }
@@ -62,9 +68,7 @@ public class Utility extends TestBase{
             
    		 for(Row row: sheet) {
 			 String Data1 = row.getCell(ScenarioColumnIndex).getRichStringCellValue().getString().trim();
-			 String Data2 = row.getCell(TestcaseColumnIndex).getRichStringCellValue().getString().trim();
-			 
-			 if (Data1.equals(Scenario) && Data2.equals(Testcase)) {
+			 if (Data1.equals(Scenario)) {
 				 if(row.getCell(ReadColumnNameIndex).getCellType() == Cell.CELL_TYPE_STRING)
 				 ReadColumnValue = row.getCell(ReadColumnNameIndex).getRichStringCellValue().getString().trim();
 			 }
@@ -85,12 +89,6 @@ public class Utility extends TestBase{
 			FirstRow = null;
 		}
 		 return ReadColumnValue;
-	}
-	
-	public static void takeScreenshotAtEndOfTest() throws IOException {
-		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		String currentDir = System.getProperty("user.dir");
-		FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));
 	}
 
 }
