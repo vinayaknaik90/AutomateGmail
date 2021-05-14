@@ -1,17 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
+    <line>
+      <![CDATA[Fetch the details from the test data excel and set it]]>
+    </line>
+    <line>
+      <![CDATA[Enter first name, last name and username in the signup page]]>
+    </line>
+    <line>
+      <![CDATA[Enter first name, last name and username in the signup page]]>
+    </line>
+    <line>
+      <![CDATA[Successfully entered first name, last name and username in signup page]]>
+    </line>
+    <line>
+      <![CDATA[Enter the password and confirm password field values]]>
+    </line>
+    <line>
+      <![CDATA[Successfully entered password and confirm password values]]>
+    </line>
+    <line>
+      <![CDATA[Click on next button]]>
+    </line>
+    <line>
+      <![CDATA[Successfully clicked on next button]]>
+    </line>
+    <line>
+      <![CDATA[Wait for the welcome page and enter the date of birth and gender details]]>
+    </line>
   </reporter-output>
-  <suite name="Testing Gmail Application" duration-ms="48139" started-at="2021-05-14T05:14:34Z" finished-at="2021-05-14T05:15:22Z">
+  <suite name="Testing Gmail Application" duration-ms="89928" started-at="2021-05-14T11:19:41Z" finished-at="2021-05-14T11:21:11Z">
     <groups>
     </groups>
-    <test name="Test for the Gmail application" duration-ms="48139" started-at="2021-05-14T05:14:34Z" finished-at="2021-05-14T05:15:22Z">
+    <test name="Test for the Gmail application" duration-ms="89928" started-at="2021-05-14T11:19:41Z" finished-at="2021-05-14T11:21:11Z">
       <class name="com.Gmail.testcases.GmailTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.Gmail.testcases.GmailTest@4678c730]" name="setup" is-config="true" duration-ms="11469" started-at="2021-05-14T10:44:34Z" finished-at="2021-05-14T10:44:46Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.Gmail.testcases.GmailTest@22a637e7]" name="setup" is-config="true" duration-ms="5249" started-at="2021-05-14T16:49:41Z" finished-at="2021-05-14T16:49:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="FAIL" signature="verify_Gmail_Successful_Signup()[pri:1, instance:com.Gmail.testcases.GmailTest@4678c730]" name="verify_Gmail_Successful_Signup" duration-ms="35597" started-at="2021-05-14T10:44:46Z" finished-at="2021-05-14T10:45:21Z">
+        <test-method status="FAIL" signature="verify_Gmail_Successful_Signup()[pri:1, instance:com.Gmail.testcases.GmailTest@22a637e7]" name="verify_Gmail_Successful_Signup" duration-ms="83746" started-at="2021-05-14T16:49:46Z" finished-at="2021-05-14T16:51:10Z">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
               <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//select[@id='month']"}
@@ -20,8 +47,8 @@ For documentation on this error, please visit: https://www.seleniumhq.org/except
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'BLR-AA201725', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_251'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 90.0.4430.212, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: C:\Users\pairaj01\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63383}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 515bef11fa02b5f2b8eb3c1b825c76b5
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 90.0.4430.212, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: C:\Users\pairaj01\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60148}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 0eb39f7d9587a8b472b54336a58a7489
 *** Element info: {Using=xpath, value=//select[@id='month']}]]>
             </message>
             <full-stacktrace>
@@ -31,8 +58,8 @@ For documentation on this error, please visit: https://www.seleniumhq.org/except
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'BLR-AA201725', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_251'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 90.0.4430.212, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: C:\Users\pairaj01\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63383}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 515bef11fa02b5f2b8eb3c1b825c76b5
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 90.0.4430.212, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: C:\Users\pairaj01\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60148}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 0eb39f7d9587a8b472b54336a58a7489
 *** Element info: {Using=xpath, value=//select[@id='month']}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -52,8 +79,8 @@ Session ID: 515bef11fa02b5f2b8eb3c1b825c76b5
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
 	at com.sun.proxy.$Proxy9.isDisplayed(Unknown Source)
 	at utilities.ElementOperations.selectDropdownByVisibletext(ElementOperations.java:24)
-	at pages.GmailSignupPage.gmailSignUp(GmailSignupPage.java:108)
-	at com.Gmail.testcases.GmailTest.verify_Gmail_Successful_Signup(GmailTest.java:28)
+	at pages.GmailSignupPage.gmailSignUp(GmailSignupPage.java:111)
+	at com.Gmail.testcases.GmailTest.verify_Gmail_Successful_Signup(GmailTest.java:30)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -83,9 +110,36 @@ Session ID: 515bef11fa02b5f2b8eb3c1b825c76b5
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
+            <line>
+              <![CDATA[Fetch the details from the test data excel and set it]]>
+            </line>
+            <line>
+              <![CDATA[Enter first name, last name and username in the signup page]]>
+            </line>
+            <line>
+              <![CDATA[Enter first name, last name and username in the signup page]]>
+            </line>
+            <line>
+              <![CDATA[Successfully entered first name, last name and username in signup page]]>
+            </line>
+            <line>
+              <![CDATA[Enter the password and confirm password field values]]>
+            </line>
+            <line>
+              <![CDATA[Successfully entered password and confirm password values]]>
+            </line>
+            <line>
+              <![CDATA[Click on next button]]>
+            </line>
+            <line>
+              <![CDATA[Successfully clicked on next button]]>
+            </line>
+            <line>
+              <![CDATA[Wait for the welcome page and enter the date of birth and gender details]]>
+            </line>
           </reporter-output>
         </test-method> <!-- verify_Gmail_Successful_Signup -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.Gmail.testcases.GmailTest@4678c730]" name="tearDown" is-config="true" duration-ms="1042" started-at="2021-05-14T10:45:21Z" finished-at="2021-05-14T10:45:22Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.Gmail.testcases.GmailTest@22a637e7]" name="tearDown" is-config="true" duration-ms="896" started-at="2021-05-14T16:51:10Z" finished-at="2021-05-14T16:51:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

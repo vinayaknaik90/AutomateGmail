@@ -3,17 +3,20 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 
+import pojo.TestData;
 import testbase.TestBase;
 import utilities.ElementOperations;
 import utilities.Utility;
 
 public class GmailSignupPage extends TestBase {
 
-//	WebDriverWait expwait = new WebDriverWait(driver, 10);
-	Utility util = new Utility();
+	WebDriverWait expwait = new WebDriverWait(driver, 10);
+	static Utility util = new Utility();
 
 	// Object Repository
 	@FindBy(xpath = "//input[@name='firstName']")
@@ -64,38 +67,25 @@ public class GmailSignupPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void readValuesFromExcel() {
-	//	TestBase.testData.
-	}
-
 	public void gmailSignUp() {
 		try {
 
-			// Read all the data required from the excel
-			Reporter.log("Fetch the details from the test data excel");
-			String firstname = util.readCellValue("Gmail_Signup_Testdata", "Testdata1", "FirstName");
-			String lastname = util.readCellValue("Gmail_Signup_Testdata", "Testdata1", "LastName");
-			String pass = util.readCellValue("Gmail_Signup_Testdata", "Testdata1", "Password");
-
-			String date = util.readCellValue("Gmail_Signup_Testdata", "Testdata1", "Date");
-			String mnth = util.readCellValue("Gmail_Signup_Testdata", "Testdata1", "Month");
-			String year = util.readCellValue("Gmail_Signup_Testdata", "Testdata1", "Year");
-			String gender = util.readCellValue("Gmail_Signup_Testdata", "Testdata1", "Gender");
-			Reporter.log("Fetched the details from excel sheet");
-
-			String username = firstname + lastname + util.createRandomNumber();
+			readValuesFromExcel("Gmail_Signup_Testdata", "Testdata1");
+			String username = TestBase.testData.get().getFirstName() + TestBase.testData.get().getLastName()
+					+ util.createRandomNumber();
 
 			Reporter.log("Enter first name, last name and username in the signup page");
 
 			// Enter all the details in the first page
-			firstName.sendKeys(firstname);
-			lastName.sendKeys(lastname);
+			firstName.sendKeys(TestBase.testData.get().getFirstName());
+			lastName.sendKeys(TestBase.testData.get().getLastName());
 			userName.sendKeys(username);
 			password.click();
 			Thread.sleep(2000);
 
 			while (ElementOperations.checkVisibility(userNameErrorMsg, 5)) {
-				username = firstname + lastname + util.createRandomNumber();
+				username = TestBase.testData.get().getFirstName() + TestBase.testData.get().getLastName() 
+						+ util.createRandomNumber();
 				userName.clear();
 				userName.sendKeys(username);
 				password.click();
@@ -104,8 +94,8 @@ public class GmailSignupPage extends TestBase {
 			Reporter.log("Successfully entered first name, last name and username in signup page");
 
 			Reporter.log("Enter the password and confirm password field values");
-			password.sendKeys(pass);
-			confirmPassword.sendKeys(pass);
+			password.sendKeys(TestBase.testData.get().getPassword());
+			confirmPassword.sendKeys(TestBase.testData.get().getPassword());
 			Reporter.log("Successfully entered password and confirm password values");
 
 			// Click on next button
@@ -113,32 +103,52 @@ public class GmailSignupPage extends TestBase {
 			nextButton.click();
 			Reporter.log("Successfully clicked on next button");
 
-			// wait for the successful message to be displayed
+			// wait for the welcome message to be displayed
+			Reporter.log("Wait for the welcome page and enter the date of birth and gender details");
 			ElementOperations.checkVisibility(welcomeMsg, 5);
 
 			// Enter date of birth
-			ElementOperations.selectDropdownByVisibletext(driver, selectMnth, mnth);
-			enterDay.sendKeys(date);
-			enterYear.sendKeys(year);
+			ElementOperations.selectDropdownByVisibletext(driver, selectMnth, TestBase.testData.get().getMonth());
+			enterDay.sendKeys(TestBase.testData.get().getDate());
+			enterYear.sendKeys(TestBase.testData.get().getYear());
 
 			// select gender
-			ElementOperations.selectDropdownByVisibletext(driver, selectGender, gender);
+			ElementOperations.selectDropdownByVisibletext(driver, selectGender, TestBase.testData.get().getGender());
 			nextButton.click();
+			Reporter.log("Successfully entered the date of birth and gender details");
 
+			Reporter.log("Click on agree button and navigate to next page");
 			ElementOperations.checkVisibility(agreeButton, 5);
-			// expwait.until(ExpectedConditions.visibilityOf(agreeButton));
 			ElementOperations.scrollIntoView(agreeButton);
 			agreeButton.click();
 
-			ElementOperations.checkVisibility(welcomeMessageSuccess, 5);
-//		expwait.until(ExpectedConditions.visibilityOf(welcomeMessageSuccess));
+			expwait.until(ExpectedConditions.visibilityOf(welcomeMessageSuccess));
+			Reporter.log("Successfully clicked on agree button and navigated to next page");
 
-			Assert.assertEquals(welcomeMessageSuccess.getText().trim(), "Welcome, " + firstname + " " + lastname,
+			Assert.assertEquals(welcomeMessageSuccess.getText().trim(), "Welcome, " + TestBase.testData.get().getFirstName().trim() + 
+					" " + TestBase.testData.get().getLastName().trim(),
 					"Failed to register the user");
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+//	
+//	public static void main(String[] args) {
+//		readValuesFromExcel("Gmail_Signup_Testdata", "Testdata1");
+//	}
+	
+	public static void readValuesFromExcel(String sheetName, String scenario) {
+		Reporter.log("Fetch the details from the test data excel and set it");
+		TestBase.testData.get().setFirstName(util.readCellValue(sheetName, scenario, "FirstName"));
+		TestBase.testData.get().setLastName(util.readCellValue(sheetName, scenario, "LastName"));
+		TestBase.testData.get().setPassword(util.readCellValue(sheetName, scenario, "Password"));
+		TestBase.testData.get().setDate(util.readCellValue(sheetName, scenario, "Date"));
+		TestBase.testData.get().setMonth(util.readCellValue(sheetName, scenario, "Month"));
+		TestBase.testData.get().setYear(util.readCellValue(sheetName, scenario, "Year"));
+		TestBase.testData.get().setGender(util.readCellValue(sheetName, scenario, "Gender"));
+		Reporter.log("Enter first name, last name and username in the signup page");
+	
 	}
 
 }

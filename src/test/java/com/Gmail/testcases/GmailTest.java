@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import pages.GmailSignupPage;
+import pojo.TestData;
 import testbase.TestBase;
 import utilities.Utility;
 
@@ -18,6 +19,7 @@ public class GmailTest extends TestBase{
 	
 	@BeforeMethod
 	public void setup() {
+		TestBase.testData.set(new TestData());
 		Initialization();
 		util = new Utility();
 		signuppage = new GmailSignupPage();
