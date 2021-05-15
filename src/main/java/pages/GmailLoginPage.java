@@ -33,13 +33,15 @@ public class GmailLoginPage extends ElementOperations{
 	public GmailHomePage gmailSignIn() {
 		readValuesForSignIn("Gmail_Signin_Data", "User1");
 		
-		Reporter.log("Enter useremail, password and login to the application", true);
+		Reporter.log("Enter useremail and click on next button", true);
 		usernameForSignin.sendKeys(TestBase.testData.get().getUserEmail());
 		nextButtonSignin.click();
+		Reporter.log("Entered useremail successfully and click on next button", true);
+		Reporter.log("Enter password and click on next button", true);
 		waitforElementVisible(passwordSignin, sleephigh).sendKeys(TestBase.testData.get().getUserPassword());
 //		passwordSignin.sendKeys(TestBase.testData.get().getUserPassword());
 		nextButtonSignin.click();	
-		Reporter.log("Successfully entered useremail, password and logged in to the application", true);
+		Reporter.log("Entered password successfully and clicked on next button", true);
 		return new GmailHomePage();
 	}
 	
