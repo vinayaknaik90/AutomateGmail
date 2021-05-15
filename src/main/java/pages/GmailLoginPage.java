@@ -34,6 +34,7 @@ public class GmailLoginPage extends ElementOperations{
 		readValuesForSignIn("Gmail_Signin_Data", "User1");
 		
 		Reporter.log("Enter useremail and click on next button", true);
+		checkVisibility(usernameForSignin, 10);
 		usernameForSignin.sendKeys(TestBase.testData.get().getUserEmail());
 		nextButtonSignin.click();
 		Reporter.log("Entered useremail successfully and click on next button", true);
