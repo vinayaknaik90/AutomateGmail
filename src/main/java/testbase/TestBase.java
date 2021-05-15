@@ -46,16 +46,16 @@ public class TestBase {
 		if(Browser.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + File.separator + "chromedriver.exe");
 //			DesiredCapabilities capabilities = new DesiredCapabilities();
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--disable-extensions");
-			options.addArguments("--disable-notifications");
-			options.addArguments("--enable-automation");
-			options.addArguments("--disable-infobars");
-			options.addArguments("--disable-save-password-bubble");
-			options.addArguments("--test-type");
+//			ChromeOptions options = new ChromeOptions();
+//			options.addArguments("--disable-extensions");
+//			options.addArguments("--disable-notifications");
+//			options.addArguments("--enable-automation");
+//			options.addArguments("--disable-infobars");
+//			options.addArguments("--disable-save-password-bubble");
+//			options.addArguments("--test-type");
 //			options.addArguments("--headless", "--disable-gpu", "--window-size=1936,1056");		
 			
-			driver = new ChromeDriver(options);
+			driver = new ChromeDriver();
 		} 
 		
 		else if (Browser.equals("firefox")){
