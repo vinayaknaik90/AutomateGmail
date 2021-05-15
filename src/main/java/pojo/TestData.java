@@ -18,7 +18,13 @@ public @Data class TestData {
 	
 	private String year;
 	
-	private String Gender;
+	private String gender;
+	
+	private String phoneNumber;
+	
+	private String userEmail;
+	
+	private String userPassword;
 
 	public String getFirstName() {
 		return firstName;
@@ -77,11 +83,35 @@ public @Data class TestData {
 	}
 
 	public String getGender() {
-		return Gender;
+		return gender;
 	}
 
 	public void setGender(String gender) {
-		Gender = gender;
+		this.gender = gender;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
+	public String getUserPassword() {
+		return userPassword;
+	}
+
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
 
 }

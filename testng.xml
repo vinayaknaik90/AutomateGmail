@@ -8,7 +8,12 @@
 
     <test name="Test for the Gmail application">
          <classes>
-             <class name="com.Gmail.testcases.GmailTest"/>
+             <class name="com.Gmail.testcases.GmailTest">
+              <methods>
+                <include name="verify_Gmail_Login_Logout_Functionality"/>
+                <exclude name="verify_Gmail_Successful_Signup"/>
+              </methods>
+              </class>
           </classes>
      </test>
 </suite>

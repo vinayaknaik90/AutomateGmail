@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import pojo.TestData;
 import testbase.TestBase;
 import utilities.ElementOperations;
 import utilities.Utility;
@@ -60,6 +59,18 @@ public class GmailSignupPage extends TestBase {
 
 	@FindBy(xpath = "//h1[@class='x7WrMb']")
 	WebElement welcomeMessageSuccess;
+	
+	@FindBy(xpath = "//div[@class='ry3kXd YuHtjc']")
+	WebElement openCountryDropdown;
+	
+	@FindBy(xpath = "(//span[text()='United States '])[2]")
+	WebElement selectCountryInDropdown;
+	
+	@FindBy(xpath = "//input[@id='phoneNumberId']")
+	WebElement enterPhoneNumber;
+	
+	@FindBy(xpath = "//span[text()='Verify your phone number']")
+	WebElement verifyPhoneMessage;
 
 	;
 
@@ -74,7 +85,7 @@ public class GmailSignupPage extends TestBase {
 			String username = TestBase.testData.get().getFirstName() + TestBase.testData.get().getLastName()
 					+ util.createRandomNumber();
 
-			Reporter.log("Enter first name, last name and username in the signup page");
+			Reporter.log("Enter first name, last name and username in the signup page", true);
 
 			// Enter all the details in the first page
 			firstName.sendKeys(TestBase.testData.get().getFirstName());
@@ -91,20 +102,28 @@ public class GmailSignupPage extends TestBase {
 				password.click();
 				Thread.sleep(2000);
 			}
-			Reporter.log("Successfully entered first name, last name and username in signup page");
+			Reporter.log("Successfully entered first name, last name and username in signup page", true);
 
-			Reporter.log("Enter the password and confirm password field values");
+			Reporter.log("Enter the password and confirm password field values", true);
 			password.sendKeys(TestBase.testData.get().getPassword());
 			confirmPassword.sendKeys(TestBase.testData.get().getPassword());
-			Reporter.log("Successfully entered password and confirm password values");
+			Reporter.log("Successfully entered password and confirm password values", true);
 
 			// Click on next button
-			Reporter.log("Click on next button");
+			Reporter.log("Click on next button", true);
 			nextButton.click();
-			Reporter.log("Successfully clicked on next button");
+			Reporter.log("Successfully clicked on next button", true);
+			
+			if (ElementOperations.checkVisibility(verifyPhoneMessage, 5)) {
+				openCountryDropdown.click();
+				expwait.until(ExpectedConditions.visibilityOf(selectCountryInDropdown));
+				selectCountryInDropdown.click();
+				enterPhoneNumber.sendKeys(TestBase.testData.get().getPhoneNumber());
+				nextButton.click();
+			}
 
 			// wait for the welcome message to be displayed
-			Reporter.log("Wait for the welcome page and enter the date of birth and gender details");
+			Reporter.log("Wait for the welcome page and enter the date of birth and gender details", true);
 			ElementOperations.checkVisibility(welcomeMsg, 5);
 
 			// Enter date of birth
@@ -115,15 +134,15 @@ public class GmailSignupPage extends TestBase {
 			// select gender
 			ElementOperations.selectDropdownByVisibletext(driver, selectGender, TestBase.testData.get().getGender());
 			nextButton.click();
-			Reporter.log("Successfully entered the date of birth and gender details");
+			Reporter.log("Successfully entered the date of birth and gender details", true);
 
-			Reporter.log("Click on agree button and navigate to next page");
+			Reporter.log("Click on agree button and navigate to next page", true);
 			ElementOperations.checkVisibility(agreeButton, 5);
 			ElementOperations.scrollIntoView(agreeButton);
 			agreeButton.click();
 
 			expwait.until(ExpectedConditions.visibilityOf(welcomeMessageSuccess));
-			Reporter.log("Successfully clicked on agree button and navigated to next page");
+			Reporter.log("Successfully clicked on agree button and navigated to next page", true);
 
 			Assert.assertEquals(welcomeMessageSuccess.getText().trim(), "Welcome, " + TestBase.testData.get().getFirstName().trim() + 
 					" " + TestBase.testData.get().getLastName().trim(),
@@ -139,7 +158,7 @@ public class GmailSignupPage extends TestBase {
 //	}
 	
 	public static void readValuesFromExcel(String sheetName, String scenario) {
-		Reporter.log("Fetch the details from the test data excel and set it");
+		Reporter.log("Fetch the details from the test data excel and set it", true);
 		TestBase.testData.get().setFirstName(util.readCellValue(sheetName, scenario, "FirstName"));
 		TestBase.testData.get().setLastName(util.readCellValue(sheetName, scenario, "LastName"));
 		TestBase.testData.get().setPassword(util.readCellValue(sheetName, scenario, "Password"));
@@ -147,7 +166,8 @@ public class GmailSignupPage extends TestBase {
 		TestBase.testData.get().setMonth(util.readCellValue(sheetName, scenario, "Month"));
 		TestBase.testData.get().setYear(util.readCellValue(sheetName, scenario, "Year"));
 		TestBase.testData.get().setGender(util.readCellValue(sheetName, scenario, "Gender"));
-		Reporter.log("Enter first name, last name and username in the signup page");
+		TestBase.testData.get().setPhoneNumber(util.readCellValue(sheetName, scenario, "PhoneNumber"));
+		Reporter.log("Fetched the details from the excel sheet", true);
 	
 	}
 

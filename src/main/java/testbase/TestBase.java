@@ -10,16 +10,10 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import pojo.TestData;
 
 
 public class TestBase {
-	
-//	public static void main (String[] args) {
-//	System.out.println(System.getProperty("user.dir") + File.separator +"src" + File.separator +"main" + File.separator 
-//			+"java" + File.separator +"config" + File.separator + "config.properties");	
-//	}
 	
 	public static Properties prop;
 	public static FileInputStream fis;
@@ -60,7 +54,7 @@ public class TestBase {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 //		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.get(prop.getProperty("signupurl"));
+		driver.get(prop.getProperty("signinurl"));
 	}
 }
 

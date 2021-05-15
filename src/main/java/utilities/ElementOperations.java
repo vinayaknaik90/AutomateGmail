@@ -11,6 +11,10 @@ import testbase.TestBase;
 
 public class ElementOperations extends TestBase{
 	
+	public static int sleepmin = 5;
+	public static int sleepmid = 10;
+	public static int sleephigh = 20;
+	
 	/*
 	 * To select the dropdown by visible text
 	 * @param driver - specifies the webdriver object
@@ -54,9 +58,22 @@ public class ElementOperations extends TestBase{
 			return disp;
 		} catch(org.openqa.selenium.TimeoutException t) {
 			return false;
-		} catch(Exception e) {
+		} catch(org.openqa.selenium.NoSuchElementException n) {
+			return false;
+		}		
+		catch(Exception e) {
 			System.err.println("Unable to return the webelement for the locator");
 		    return false;
+		}
+	}
+	
+	public static WebElement waitforElementVisible(WebElement element, int waitTime) {
+		try {
+			WebElement ele = new WebDriverWait(driver, waitTime).until(ExpectedConditions.visibilityOf(element));
+			return ele;
+		}catch(Exception e) {
+			System.err.println("Unable to return the webelement for the locator");
+		    return null;
 		}
 	}	
 

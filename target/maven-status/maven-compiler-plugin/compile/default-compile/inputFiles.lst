@@ -1,6 +1,10 @@
-C:\Users\pairaj01\eclipse-workspace\GmailTest\src\main\java\com\Gmail\pages\GmailSignupPage.java
-C:\Users\pairaj01\eclipse-workspace\GmailTest\src\test\java\com\Gmail\testcases\GmailTest.java
-C:\Users\pairaj01\eclipse-workspace\GmailTest\src\main\java\com\Gmail\testbase\TestBase.java
-C:\Users\pairaj01\eclipse-workspace\GmailTest\src\main\java\com\Gmail\util\ElementOperations.java
-C:\Users\pairaj01\eclipse-workspace\GmailTest\src\main\java\com\Gmail\util\Utility.java
-C:\Users\pairaj01\eclipse-workspace\GmailTest\src\main\java\com\Gmail\testbase\ExtentReporterNG.java
+C:\Users\pairaj01\eclipse-workspace\GmailTest\src\main\java\pojo\TestData.java
+C:\Users\pairaj01\eclipse-workspace\GmailTest\src\main\java\testbase\TestBase.java
+C:\Users\pairaj01\eclipse-workspace\GmailTest\src\main\java\utilities\ElementOperations.java
+C:\Users\pairaj01\eclipse-workspace\GmailTest\src\main\java\utilities\Utility.java
+C:\Users\pairaj01\eclipse-workspace\GmailTest\src\main\java\utilities\HandleOTP.java
+C:\Users\pairaj01\eclipse-workspace\GmailTest\src\main\java\utilities\WebEventListener.java
+C:\Users\pairaj01\eclipse-workspace\GmailTest\src\main\java\pages\GmailLoginPage.java
+C:\Users\pairaj01\eclipse-workspace\GmailTest\src\main\java\pages\GmailHomePage.java
+C:\Users\pairaj01\eclipse-workspace\GmailTest\src\main\java\pages\GmailSignupPage.java
+C:\Users\pairaj01\eclipse-workspace\GmailTest\src\main\java\extentReportListener\ExtentReportNG.java
