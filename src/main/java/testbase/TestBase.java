@@ -44,7 +44,7 @@ public class TestBase {
 	public void Initialization() {
 		String Browser = prop.getProperty("browser");
 		if(Browser.equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + File.separator + "chromedriver");
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + File.separator + "chromedriver.exe");
 //			DesiredCapabilities capabilities = new DesiredCapabilities();
 //			ChromeOptions options = new ChromeOptions();
 //			options.addArguments("--disable-extensions");
