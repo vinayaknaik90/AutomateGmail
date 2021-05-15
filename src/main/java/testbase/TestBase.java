@@ -9,7 +9,10 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
 import pojo.TestData;
 
 
@@ -42,7 +45,17 @@ public class TestBase {
 		String Browser = prop.getProperty("browser");
 		if(Browser.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + File.separator + "chromedriver.exe");
-			driver = new ChromeDriver();
+//			DesiredCapabilities capabilities = new DesiredCapabilities();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--disable-extensions");
+			options.addArguments("--disable-notifications");
+			options.addArguments("--enable-automation");
+			options.addArguments("--disable-infobars");
+			options.addArguments("--disable-save-password-bubble");
+			options.addArguments("--test-type");
+//			options.addArguments("--headless", "--disable-gpu", "--window-size=1936,1056");		
+			
+			driver = new ChromeDriver(options);
 		} 
 		
 		else if (Browser.equals("firefox")){

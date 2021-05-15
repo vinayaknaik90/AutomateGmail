@@ -8,7 +8,7 @@
     <classes>
       <class name="com.Gmail.testcases.GmailTest">
         <methods>
-          <include name="verify_Gmail_Successful_Signup"/>
+          <include name="verify_Gmail_Login_Logout_Functionality"/>
           <include name="setup"/>
           <include name="tearDown"/>
         </methods>
