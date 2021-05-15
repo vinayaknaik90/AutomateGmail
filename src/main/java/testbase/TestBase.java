@@ -53,7 +53,7 @@ public class TestBase {
 			options.addArguments("--disable-infobars");
 			options.addArguments("--disable-save-password-bubble");
 			options.addArguments("--test-type");
-			options.addArguments("--headless", "--disable-gpu", "--window-size=1936,1056");		
+//			options.addArguments("--headless", "--disable-gpu", "--window-size=1936,1056");		
 			
 			driver = new ChromeDriver(options);
 		} 
