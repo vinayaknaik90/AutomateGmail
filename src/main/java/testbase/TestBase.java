@@ -55,9 +55,9 @@ public class TestBase {
 			options.addArguments("--disable-save-password-bubble");
 			options.addArguments("--test-type");
 //			options.addArguments("--headless", "--disable-gpu", "--window-size=1936,1056");		
-			Reporter.log("Chrome options added successfully", true);
+			Reporter.log("Chrome options added successfully",true);
 			driver = new ChromeDriver(options);
-			Reporter.log("Chrome laucnched successfully", true);
+			Reporter.log("Chrome laucnched successfully",true);
 		} 
 		
 		else if (Browser.equals("firefox")){
@@ -66,12 +66,12 @@ public class TestBase {
 		}
 				
 		driver.manage().window().maximize();
-		Reporter.log("Chrome maximized successfully", true);
+		Reporter.log("Chrome maximized successfully",true);
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 //		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get(prop.getProperty("signinurl"));
-		Reporter.log("URL laucnhed successfully", true);
+		Reporter.log("URL laucnhed successfully",true);
 	}
 }
 
