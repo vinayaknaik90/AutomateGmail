@@ -48,6 +48,7 @@ public class TestBase {
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--disable-extensions");
+			options.addArguments("--no-sandbox");
 			options.addArguments("--disable-notifications");
 			options.addArguments("--enable-automation");
 			options.addArguments("--disable-infobars");
